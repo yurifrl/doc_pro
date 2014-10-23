@@ -6,6 +6,7 @@ class CreateTags < ActiveRecord::Migration
       t.text :example
       t.string :synopsis
       t.string :version
+      t.column :type_of, :integer, default: 0
 
       t.timestamps
     end
