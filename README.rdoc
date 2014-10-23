@@ -1,5 +1,4 @@
 [ ![Codeship Status for yurifrl/doc_pro](https://www.codeship.io/projects/28f2f9e0-3d14-0132-ef53-66f6526e1682/status)](https://www.codeship.io/projects/43173)
-
 == README
 
 This README would normally document whatever steps are necessary to get the
