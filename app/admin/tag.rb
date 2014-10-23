@@ -21,7 +21,7 @@ ActiveAdmin.register Tag do
       f.input :pages, :as => :select, :input_html => {:multiple => true}
       f.input :contexts, :as => :select, :input_html => {:multiple => true}
       f.input :tags, :as => :select, :input_html => {:multiple => true}
-      f.input :type_of, :as => :select, :input_html => {:multiple => true}
+      f.input :tag_name
       f.input :name
       f.input :description
       f.input :example

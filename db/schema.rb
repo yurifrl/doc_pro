@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20141023183155) do
 
   create_table "contents", force: true do |t|
     t.string   "name"
+    t.string   "system_name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20141023183155) do
 
   create_table "pages", force: true do |t|
     t.string   "name"
+    t.string   "system_name"
     t.text     "description"
     t.integer  "content_id"
     t.datetime "created_at"
@@ -91,6 +93,7 @@ ActiveRecord::Schema.define(version: 20141023183155) do
 
   create_table "tags", force: true do |t|
     t.string   "name"
+    t.string   "tag_name"
     t.text     "description"
     t.text     "example"
     t.string   "synopsis"
