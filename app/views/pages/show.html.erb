@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @page.name %>
+</p>
+
+<p>
+  <strong>Tag name:</strong>
+  <%= @page.system_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @page.description%>
+</p>
+
+<p>
+  <strong>Possui os objetos:</strong>
+  <%= @page.tags.pluck(:tag_name) %>
+</p>
+
+<%= link_to 'Back', pages_path %>
