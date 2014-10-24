@@ -1,9 +1,3 @@
-## CLEAN DATABASE
-[Content,Page,Tag].each do |m|
-  ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{m.table_name} RESTART IDENTITY;")
-end
-##
-
 content_checkout = Content.where(system_name: 'checkout', name: 'Checkout',  description: 'Checkout da plataform').first_or_create
 content_errors = Content.where(system_name: 'errors', name: 'Erros',  description: '').first_or_create
 content_home = Content.where(system_name: 'home', name: 'Home',  description: '').first_or_create
@@ -52,7 +46,7 @@ pages[:users_registration] = Page.where(name: '', system_name: 'registration', d
 pages[:users_sign_up] = Page.where(name: '', system_name: 'sign_up', description: '', content_id: content_users.id).first_or_create
 
 
-products_block = Tag.where(tag_name: 'products', name: 'Produtos', type_of: 1).first_or_create
+products_block = Tag.where(tag_name: 'products', name: 'Produtos', type_of: :block).first_or_create
 product_tags = []
 # Product Attributes
 product_tags << Tag.where(tag_name: 'product_cart_form', name: 'Product Cart Form').first_or_create
@@ -97,7 +91,7 @@ product_tags.map do |product_tag|
   product_tag.update_attribute(:page_ids, pages[:products_detail].id)
 end
 
-images_block = Tag.where(tag_name: 'images', name: 'Imagens', type_of: 1).first_or_create
+images_block = Tag.where(tag_name: 'images', name: 'Imagens', type_of: :block).first_or_create
 image_tags = []
 # Image Attributes
 image_tags << Tag.where(tag_name: 'image_url', name: 'image url').first_or_create
