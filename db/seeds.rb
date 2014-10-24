@@ -83,7 +83,7 @@ product_tags << Tag.where(tag_name: 'product_reset_cycle_properties', name: 'Pro
 
 product_tags.map do |product_tag|
   product_tag.update_attribute(:block_ids, products_tag.id)
-  product_tag.update_attribute(:page_ids, Page.where(name: '', system_name: 'detail', description: '', content_id: content_products.id).first.id)
+  product_tag.update_attribute(:page_ids, Page.where(name: '', system_name: 'detail', description: '').first.id)
 end
 
 images_tag = Tag.where(tag_name: 'images', name: 'Imagens').first_or_create
@@ -107,7 +107,7 @@ image_tags << Tag.where(tag_name: 'image_attachment_updated_at', name: 'image at
 
 image_tags.map do |image_tag|
   image_tag.update_attribute(:block_ids, [products_tag.id, images_tag.id])
-  image_tag.update_attribute(:page_ids, Page.where(name: '', system_name: 'detail', description: '', content_id: content_products.id).first.id)
+  image_tag.update_attribute(:page_ids, Page.where(name: '', system_name: 'detail', description: '').first.id)
 end
 # option_types_tag = Tag.where(tag_name: 'option_types', name: 'OptionType').first_or_create
 # variants_tag = Tag.where(tag_name: 'variants', name: 'Variant').first_or_create

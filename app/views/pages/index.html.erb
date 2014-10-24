@@ -2,23 +2,15 @@
 <table>
 
   <% Content.all.each do |content| %>
-
       <thead>
         <tr>
           <td><h5><%= content.name %></h5></td>
-          <th>Nome</th>
-          <th>Nome do sistema</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
-
         <% content.pages.each do |page| %>
             <tr>
-              <td></td>
-              <td><%= page.name %></td>
-              <td><%= page.system_name %></td>
-              <td><%= link_to 'Show', page %></td>
+              <td><%= link_to page.system_name, page %></td>
             </tr>
         <% end %>
       </tbody>
