@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tag.name %>
+</p>
+
+<p>
+  <strong>Tag name:</strong>
+  <%= @tag.tag_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tag.description %>
+</p>
+
+<p>
+  <strong>Example:</strong>
+  <%= @tag.example %>
+</p>
+
+<p>
+  <strong>Synopsis:</strong>
+  <%= @tag.synopsis %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @tag.version %>
+</p>
+
+<p>
+  <strong>Type of:</strong>
+  <%= @tag.type_of %>
+</p>
+
+<p>
+  <strong>Paginas:</strong>
+  <%= @tag.pages.pluck(:name) %>
+</p>
+
+<p>
+  <strong>Blocos:</strong>
+  <%= @tag.blocks.pluck(:tag_name) %>
+</p>
+
+<p>
+  <strong>Possui os objetos:</strong>
+  <%= @tag.tags.pluck(:tag_name) %>
+</p>
+
+<%= link_to 'Edit', edit_tag_path(@tag) %> |
+<%= link_to 'Back', tags_path %>

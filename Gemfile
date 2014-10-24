@@ -51,6 +51,9 @@ gem 'validates_formatting_of'
 gem 'tzinfo-data'
 gem 'rails_12factor'
 gem 'unicorn'
+gem 'select2-rails'
+gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
+gem 'awesome_nested_set'
 
 group :development, :test do
   gem 'rspec-rails'

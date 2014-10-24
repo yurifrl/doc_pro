@@ -1,26 +1,15 @@
 ActiveAdmin.register Tag do
-  permit_params :name, :description, :example, :synopsis, :version, page_ids: [], contexts_ids: []
+  before_filter :skip_sidebar!, :only => :index
 
-
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
+  permit_params :name, :tag_name, :description, :example, :synopsis, :version, page_ids: [], contexts_ids: [], tag_ids: [], block_ids: []
 
   form do |f|
     f.actions
-    f.inputs  do
-      f.input :pages, :as => :select, :input_html => {:multiple => true}
-      f.input :contexts, :as => :select, :input_html => {:multiple => true}
-      f.input :tags, :as => :select, :input_html => {:multiple => true}
+    f.inputs do
+      f.input :pages, as: :select2_multiple, :input_html => {:multiple => true}
+      f.input :contexts, as: :select2_multiple, :input_html => {:multiple => true}
+      f.input :blocks, as: :select2_multiple, label: 'Pertence ao Bloco', :input_html => {:multiple => true}, collection: Tag.all.pluck(:tag_name, :id)
+      f.input :tags, as: :select2_multiple, label: 'Possui as Tags', :input_html => {:multiple => true}, collection: Tag.all.pluck(:tag_name, :id)
       f.input :tag_name
       f.input :name
       f.input :description
