@@ -1,4 +1,6 @@
-
+[Content,Page,Tag].each do |m|
+  ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{m.table_name} RESTART IDENTITY;")
+end
 
 content_checkout = Content.where(system_name: 'checkout', name: 'Checkout',  description: 'Checkout da plataform').first_or_create
 content_errors = Content.where(system_name: 'errors', name: 'Erros',  description: '').first_or_create
@@ -85,7 +87,7 @@ product_tags << Tag.where(tag_name: 'product_properties?', name: 'Product Proper
 product_tags << Tag.where(tag_name: 'product_reset_cycle_properties', name: 'Product Reset Cycle Properties').first_or_create
 
 # Pages where you can use the products block
-product_tags.update_attribute(:page_ids, pages.map {|key, value| value.id})
+products_block.update_attribute(:page_ids, pages.map {|key, value| value.id})
 product_tags.map do |product_tag|
   # Blocks where you can use products attributes
   product_tag.update_attribute(:block_ids, products_block.id)
@@ -113,7 +115,7 @@ image_tags << Tag.where(tag_name: 'image_type', name: 'image type').first_or_cre
 image_tags << Tag.where(tag_name: 'image_attachment_updated_at', name: 'image attachment updated at').first_or_create
 
 # Page where you can use the images block
-image_tags.update_attribute(:page_ids, pages[:products_detail].id)
+images_block.update_attribute(:page_ids, pages[:products_detail].id)
 image_tags.map do |image_tag|
   # Blocks where you can use image attributes
   image_tag.update_attribute(:block_ids, [products_block.id, images_block.id])

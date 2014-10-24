@@ -1,11 +1,20 @@
 ActiveAdmin.register Tag do
-  before_filter :skip_sidebar!, :only => :index
+  # before_filter :skip_sidebar!, :only => :index
 
   permit_params :name, :tag_name, :description, :example, :synopsis, :version, page_ids: [], contexts_ids: [], tag_ids: [], block_ids: []
 
   action_item do
     link_to "Add", "/admin/tags/new"
   end
+
+  index do
+    column "Tag", :sortable => :tag_name do |tag|
+      link_to tag.tag_name, edit_admin_tag_path(tag)
+    end
+    actions
+  end
+
+  filter :tag_name
 
   form do |f|
     f.actions
