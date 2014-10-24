@@ -1,6 +1,8 @@
+## CLEAN DATABASE
 [Content,Page,Tag].each do |m|
   ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{m.table_name} RESTART IDENTITY;")
 end
+##
 
 content_checkout = Content.where(system_name: 'checkout', name: 'Checkout',  description: 'Checkout da plataform').first_or_create
 content_errors = Content.where(system_name: 'errors', name: 'Erros',  description: '').first_or_create
@@ -30,16 +32,16 @@ pages[:orders_detail] = Page.where(name: '', system_name: 'detail', description:
 pages[:products_category] = Page.where(name: '', system_name: 'category', description: '', content_id: content_products.id).first_or_create
 pages[:products_detail] = Page.where(name: '', system_name: 'detail', description: '', content_id: content_products.id).first_or_create
 
-pages[:mail_layouts] = Page.where(name: '', system_name: 'layouts/email', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_order_mailer] = Page.where(name: '', system_name: 'order_mailer/cancel_email', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_order_mailer] = Page.where(name: '', system_name: 'order_mailer/confirm_email', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'shared/address', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'shared/footer', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'shared/header', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'shared/order_details', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'shared/shipment_details', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'shared/stylesheet', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_user_mailer] = Page.where(name: '', system_name: 'user_mailer/reset_password_instructions', description: '', content_id: content_mail.id).first_or_create
+pages[:mail_layouts] = Page.where(name: '', system_name: 'email', description: '', content_id: content_mail.id).first_or_create
+pages[:mail_order_mailer] = Page.where(name: '', system_name: 'cancel_email', description: '', content_id: content_mail.id).first_or_create
+pages[:mail_order_mailer] = Page.where(name: '', system_name: 'confirm_email', description: '', content_id: content_mail.id).first_or_create
+pages[:mail_shared] = Page.where(name: '', system_name: 'address', description: '', content_id: content_mail.id).first_or_create
+pages[:mail_shared] = Page.where(name: '', system_name: 'footer', description: '', content_id: content_mail.id).first_or_create
+pages[:mail_shared] = Page.where(name: '', system_name: 'header', description: '', content_id: content_mail.id).first_or_create
+pages[:mail_shared] = Page.where(name: '', system_name: 'order_details', description: '', content_id: content_mail.id).first_or_create
+pages[:mail_shared] = Page.where(name: '', system_name: 'shipment_details', description: '', content_id: content_mail.id).first_or_create
+pages[:mail_shared] = Page.where(name: '', system_name: 'stylesheet', description: '', content_id: content_mail.id).first_or_create
+pages[:mail_user_mailer] = Page.where(name: '', system_name: 'reset_password_instructions', description: '', content_id: content_mail.id).first_or_create
 pages[:mail_change_email] = Page.where(name: '', system_name: 'change_email', description: '', content_id: content_mail.id).first_or_create
 pages[:mail_reset_password_instructions] = Page.where(name: '', system_name: 'reset_password_instructions', description: '', content_id: content_mail.id).first_or_create
 
@@ -50,7 +52,7 @@ pages[:users_registration] = Page.where(name: '', system_name: 'registration', d
 pages[:users_sign_up] = Page.where(name: '', system_name: 'sign_up', description: '', content_id: content_users.id).first_or_create
 
 
-products_block = Tag.where(tag_name: 'products', name: 'Produtos').first_or_create
+products_block = Tag.where(tag_name: 'products', name: 'Produtos', type_of: 1).first_or_create
 product_tags = []
 # Product Attributes
 product_tags << Tag.where(tag_name: 'product_cart_form', name: 'Product Cart Form').first_or_create
@@ -95,7 +97,7 @@ product_tags.map do |product_tag|
   product_tag.update_attribute(:page_ids, pages[:products_detail].id)
 end
 
-images_block = Tag.where(tag_name: 'images', name: 'Imagens').first_or_create
+images_block = Tag.where(tag_name: 'images', name: 'Imagens', type_of: 1).first_or_create
 image_tags = []
 # Image Attributes
 image_tags << Tag.where(tag_name: 'image_url', name: 'image url').first_or_create

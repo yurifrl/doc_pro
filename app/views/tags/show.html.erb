@@ -37,17 +37,23 @@
 
 <p>
   <strong>Paginas:</strong>
-  <%= @tag.pages.pluck(:name) %>
+  <% @tag.pages.map do |page| %>
+    <%= link_to "#{page.content.system_name} #{page.system_name} ," , page_path(page) %>
+  <% end %>
 </p>
 
 <p>
   <strong>Blocos:</strong>
-  <%= @tag.blocks.pluck(:tag_name) %>
+  <% @tag.blocks.map do |block| %>
+      <%= link_to block.tag_name, tag_path(block) %>
+  <% end %>
 </p>
 
 <p>
   <strong>Possui os objetos:</strong>
-  <%= @tag.tags.pluck(:tag_name) %>
+  <% @tag.tags.map do |tag| %>
+      <%= link_to tag.tag_name, tag_path(tag) %>
+  <% end %>
 </p>
 
 <%= link_to 'Back', tags_path %>
