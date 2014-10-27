@@ -15,11 +15,16 @@
 
       <div class="tab-content">
         <div class="tab-pane active" id="pages">
-          <ul>
-            <% @tag.pages.each do |tag| %>
-                <li><%= link_to tag.system_name, tag %></li>
-            <% end %>
-          </ul>
+          <% Content.all.each do |content| %>
+              <ul>
+                <li>
+                  <h5><%= content.name %></h5>
+                <% content.pages.each do |page| %>
+                    <li><%= link_to page.system_name, page %></li>
+                <% end %>
+                </li>
+              </ul>
+          <% end %>
         </div>
         <div class="tab-pane" id="tags">
           <ul>

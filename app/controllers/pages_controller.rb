@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
+    @tags  = Tag.all
     @pages = Page.all
   end
 
