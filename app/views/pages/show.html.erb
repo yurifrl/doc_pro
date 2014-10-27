@@ -1,25 +1,63 @@
-<p id="notice"><%= notice %></p>
+<!-- Main -->
+<div class="container-fluid">
+  <div class="row">
+    <%= render 'elements/sidebar' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @page.name %>
-</p>
+    <div class="col-sm-9">
 
-<p>
-  <strong>Tag name:</strong>
-  <%= @page.system_name %>
-</p>
+      <div class="row">
 
-<p>
-  <strong>Description:</strong>
-  <%= @page.description%>
-</p>
+        <!-- center left-->
+        <div class="tag-header col-md-9">
 
-<p>
-  <strong>Possui os objetos:</strong>
-  <% @page.tags.map do |tag| %>
-      <%= link_to tag.tag_name, tag_path(tag)%> ,
-  <% end %>
-</p>
+          <span>Tag</span>
 
-<%= link_to 'Back', pages_path %>
+          <h1><i class="glyphicon glyphicon-tag"></i> <%=  %></h1>
+
+          <span class="pull-left"><%=  %></span>
+          <span class="pull-right">Escopo: global, local</span>
+
+          <hr/>
+
+          <div class="description">
+            <%=  %>
+          </div>
+
+          <div class="col-md-9">
+            <ul class="nav nav-tabs" id="myTab">
+              <li class="active">
+                <a href="#sample-curly" data-toggle="tab">Templates</a>
+              </li>
+              <li>
+                <a href="#sample-html" data-toggle="tab">Tags</a>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane active" id="sample-curly">
+                <div class="highlight">
+                  <pre><code><%=  %></code></pre>
+                </div>
+              </div>
+              <div class="tab-pane" id="sample-html">
+                <div class="highlight">
+                  <pre><code><%=  %></code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-9">
+          <h1>Templates relacionados</h1>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

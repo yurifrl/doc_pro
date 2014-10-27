@@ -19,7 +19,7 @@
               <ul>
                 <li>
                   <h5><%= content.name %></h5>
-                <% content.pages.each do |page| %>
+                  <% content.pages.each do |page| %>
                     <li><%= link_to page.system_name, page %></li>
                 <% end %>
                 </li>
@@ -28,14 +28,8 @@
         </div>
         <div class="tab-pane" id="tags">
           <ul>
-            <% if @tag %>
-                <% @tag.tags.each do |tag| %>
-                    <li><%= link_to tag.tag_name, tag %></li>
-                <% end %>
-            <% else %>
-                <% @tags.each do |tag| %>
-                    <li><%= link_to tag.tag_name, tag %></li>
-                <% end %>
+            <% Tag.order(tag_name: :asc).all.each do |tag| %>
+                <li><%= link_to tag.tag_name, tag %></li>
             <% end %>
           </ul>
         </div>
