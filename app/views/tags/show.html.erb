@@ -1,59 +1,67 @@
-<p id="notice"><%= notice %></p>
+<!-- Main -->
+<div class="container-fluid">
+  <div class="row">
+    <%= render 'elements/sidebar' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tag.name %>
-</p>
+    <div class="col-sm-9">
 
-<p>
-  <strong>Tag name:</strong>
-  <%= @tag.tag_name %>
-</p>
+      <div class="row">
 
-<p>
-  <strong>Description:</strong>
-  <%= @tag.description %>
-</p>
+        <!-- center left-->
+        <div class="tag-header col-md-9">
 
-<p>
-  <strong>Example:</strong>
-  <%= @tag.example %>
-</p>
+          <span>Tag</span>
 
-<p>
-  <strong>Synopsis:</strong>
-  <%= @tag.synopsis %>
-</p>
+          <h1><i class="glyphicon glyphicon-tag"></i> <%= @tag.name %></h1>
 
-<p>
-  <strong>Version:</strong>
-  <%= @tag.version %>
-</p>
+          <span class="pull-left"><%= @tag.to_curly(close: true) %></span>
+          <span class="pull-right">Escopo: global, local</span>
 
-<p>
-  <strong>Type of:</strong>
-  <%= @tag.type_of %>
-</p>
+          <hr/>
 
-<p>
-  <strong>Paginas:</strong>
-  <% @tag.pages.map do |page| %>
-    <%= link_to "#{page.content.system_name} #{page.system_name} ," , page_path(page) %>
-  <% end %>
-</p>
+          <div class="description">
+            <%= @tag.description %>
+          </div>
 
-<p>
-  <strong>Blocos:</strong>
-  <% @tag.blocks.map do |block| %>
-      <%= link_to block.tag_name, tag_path(block) %>
-  <% end %>
-</p>
+          <div class="col-md-9">
+            <ul class="nav nav-tabs" id="myTab">
+              <li class="active">
+                <a href="#sample-curly" data-toggle="tab">Templates</a>
+              </li>
+              <li>
+                <a href="#sample-html" data-toggle="tab">Tags</a>
+              </li>
+            </ul>
 
-<p>
-  <strong>Possui os objetos:</strong>
-  <% @tag.tags.map do |tag| %>
-      <%= link_to tag.tag_name, tag_path(tag) %>
-  <% end %>
-</p>
+            <div class="tab-content">
+              <div class="tab-pane active" id="sample-curly">
+                <div class="highlight">
+                  <pre><code><%= @tag.example_curly %></code></pre>
+                </div>
+              </div>
+              <div class="tab-pane" id="sample-html">
+                <div class="highlight">
+                  <pre><code><%= @tag.example_html %></code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<%= link_to 'Back', tags_path %>
+        <%= @tag.additional_info %>
+        <% if @tag.block? && @tag.parameters %>
+            <%= render 'elements/list_snippet', locals: {tag: @tag} %>
+        <% end %>
+
+        <div class="col-md-9">
+          <h1>Templates relacionados</h1>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

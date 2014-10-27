@@ -42,7 +42,6 @@ gem 'bundler'
 
 gem 'google-analytics-rails'
 gem 'simple_form'
-gem 'binding_of_caller'
 gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'activeadmin', github: 'gregbell/active_admin'
@@ -68,6 +67,10 @@ group :test do
 end
 
 group :development do
+  gem 'awesome_print'
   gem 'better_errors'
-  gem 'pry-rails'
+  gem 'binding_of_caller'
+  gem 'pry-rails', require: true
+  gem 'pry', require: true
+  gem 'pry-debugger'
 end

@@ -1,0 +1,19 @@
+<div class="col-md-9">
+  <h1>ATRIBUTOS</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tag.parameters.each do |parameter| %>
+          <tr>
+            <td><%= parameter.name %></td>
+            <td><%= parameter.description %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

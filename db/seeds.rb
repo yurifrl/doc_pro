@@ -1,125 +1,73 @@
-content_checkout = Content.where(system_name: 'checkout', name: 'Checkout',  description: 'Checkout da plataform').first_or_create
-content_errors = Content.where(system_name: 'errors', name: 'Erros',  description: '').first_or_create
-content_home = Content.where(system_name: 'home', name: 'Home',  description: '').first_or_create
-content_layouts = Content.where(system_name: 'layouts', name: 'Layouts',  description: '').first_or_create
-content_mail = Content.where(system_name: 'mail', name: 'Mail',  description: '').first_or_create
-content_orders = Content.where(system_name: 'orders', name: 'Pedidos',  description: '').first_or_create
-content_products = Content.where(system_name: 'products', name: 'Produtos',  description: '').first_or_create
-content_users = Content.where(system_name: 'users', name: 'Usuarios',  description: '').first_or_create
+@tag_creator = TagCreator.new
 
-pages = {}
-pages[:checkout_edit] = Page.where(name: 'Edit', system_name: 'edit', description: 'Pagina de checkout', content_id: content_checkout.id).first_or_create
-
-pages[:errors_internal_error] = Page.where(name: '', system_name: 'internal_error', description: '', content_id: content_errors.id).first_or_create
-pages[:errors_page_not_found] = Page.where(name: '', system_name: 'page_not_found', description: '', content_id: content_errors.id).first_or_create
-pages[:errors_product_not_found] = Page.where(name: '', system_name: 'product_not_found', description: '', content_id: content_errors.id).first_or_create
-pages[:errors_unauthorized] = Page.where(name: '', system_name: 'unauthorized', description: '', content_id: content_errors.id).first_or_create
-
-pages[:home_index] = Page.where(name: '', system_name: 'index', description: '', content_id: content_home.id).first_or_create
-
-pages[:layouts_body] = Page.where(name: '', system_name: 'body', description: '', content_id: content_layouts.id).first_or_create
-pages[:layouts_head] = Page.where(name: '', system_name: 'head', description: '', content_id: content_layouts.id).first_or_create
-
-pages[:orders_cart] = Page.where(name: '', system_name: 'cart', description: '', content_id: content_orders.id).first_or_create
-pages[:orders_detail] = Page.where(name: '', system_name: 'detail', description: '', content_id: content_orders.id).first_or_create
-
-pages[:products_category] = Page.where(name: '', system_name: 'category', description: '', content_id: content_products.id).first_or_create
-pages[:products_detail] = Page.where(name: '', system_name: 'detail', description: '', content_id: content_products.id).first_or_create
-
-pages[:mail_layouts] = Page.where(name: '', system_name: 'email', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_order_mailer] = Page.where(name: '', system_name: 'cancel_email', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_order_mailer] = Page.where(name: '', system_name: 'confirm_email', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'address', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'footer', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'header', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'order_details', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'shipment_details', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_shared] = Page.where(name: '', system_name: 'stylesheet', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_user_mailer] = Page.where(name: '', system_name: 'reset_password_instructions', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_change_email] = Page.where(name: '', system_name: 'change_email', description: '', content_id: content_mail.id).first_or_create
-pages[:mail_reset_password_instructions] = Page.where(name: '', system_name: 'reset_password_instructions', description: '', content_id: content_mail.id).first_or_create
-
-pages[:users_account] = Page.where(name: '', system_name: 'account', description: '', content_id: content_users.id).first_or_create
-pages[:users_login] = Page.where(name: '', system_name: 'login', description: '', content_id: content_users.id).first_or_create
-pages[:users_password_recover] = Page.where(name: '', system_name: 'password_recover', description: '', content_id: content_users.id).first_or_create
-pages[:users_registration] = Page.where(name: '', system_name: 'registration', description: '', content_id: content_users.id).first_or_create
-pages[:users_sign_up] = Page.where(name: '', system_name: 'sign_up', description: '', content_id: content_users.id).first_or_create
-
-
-products_block = Tag.where(tag_name: 'products', name: 'Produtos', type_of: :block).first_or_create
-product_tags = []
-# Product Attributes
-product_tags << Tag.where(tag_name: 'product_cart_form', name: 'Product Cart Form').first_or_create
-product_tags << Tag.where(tag_name: 'product_class_alternator1', name: 'Product Class Alternator1').first_or_create
-product_tags << Tag.where(tag_name: 'product_class_alternator2', name: 'Product Class Alternator2').first_or_create
-product_tags << Tag.where(tag_name: 'product_variant_hidden_id', name: 'Product Variant Hidden Id').first_or_create
-product_tags << Tag.where(tag_name: 'product_add_to_cart', name: 'Product Add To Cart').first_or_create
-product_tags << Tag.where(tag_name: 'product_id', name: 'Product Id').first_or_create
-product_tags << Tag.where(tag_name: 'product_sku', name: 'Product Sku').first_or_create
-product_tags << Tag.where(tag_name: 'product_name', name: 'Product Name').first_or_create
-product_tags << Tag.where(tag_name: 'product_description', name: 'Product Description').first_or_create
-product_tags << Tag.where(tag_name: 'product_short_description', name: 'Product Short Description').first_or_create
-product_tags << Tag.where(tag_name: 'product_available_on', name: 'Product Available On').first_or_create
-product_tags << Tag.where(tag_name: 'product_deleted_at', name: 'Product Deleted At').first_or_create
-product_tags << Tag.where(tag_name: 'product_slug', name: 'Product Slug').first_or_create
-product_tags << Tag.where(tag_name: 'product_meta_description', name: 'Product Meta Description').first_or_create
-product_tags << Tag.where(tag_name: 'product_meta_keywords', name: 'Product Meta Keywords').first_or_create
-product_tags << Tag.where(tag_name: 'product_created_at', name: 'Product Created At').first_or_create
-product_tags << Tag.where(tag_name: 'product_updated_at', name: 'Product Updated At').first_or_create
-product_tags << Tag.where(tag_name: 'product_tax_categories', name: 'Product Tax Categories').first_or_create
-product_tags << Tag.where(tag_name: 'product_shipping_categories', name: 'Product Shipping Categories').first_or_create
-product_tags << Tag.where(tag_name: 'product_price', name: 'Product Price').first_or_create
-product_tags << Tag.where(tag_name: 'product_currency', name: 'Product Currency').first_or_create
-product_tags << Tag.where(tag_name: 'product_link', name: 'Product Link').first_or_create
-product_tags << Tag.where(tag_name: 'product_price_in_current_currency?', name: 'Product Price In Current Currency').first_or_create
-product_tags << Tag.where(tag_name: 'product_master_can_supply?', name: 'Product Master Can Supply').first_or_create
-product_tags << Tag.where(tag_name: 'product_available_in_stock?', name: 'Product Available In Stock').first_or_create
-product_tags << Tag.where(tag_name: 'product_total_in_stock', name: 'Product Total In Stock').first_or_create
-product_tags << Tag.where(tag_name: 'product_variants?', name: 'Product Variants').first_or_create
-product_tags << Tag.where(tag_name: 'product_promotions?', name: 'Product Promotions').first_or_create
-product_tags << Tag.where(tag_name: 'product_taxons?', name: 'Product Taxons').first_or_create
-product_tags << Tag.where(tag_name: 'product_property_css_class', name: 'Product Property Css Class').first_or_create
-product_tags << Tag.where(tag_name: 'product_properties?', name: 'Product Properties').first_or_create
-product_tags << Tag.where(tag_name: 'product_reset_cycle_properties', name: 'Product Reset Cycle Properties').first_or_create
-
-# Pages where you can use the products block
-products_block.update_attribute(:page_ids, pages.map {|key, value| value.id})
-product_tags.map do |product_tag|
-  # Blocks where you can use products attributes
-  product_tag.update_attribute(:block_ids, products_block.id)
-  # Pages where you can use products attributes
-  product_tag.update_attribute(:page_ids, pages[:products_detail].id)
+contents = [
+    {:system_name => :checkout, name: 'Checkout', description: ''},
+    {:system_name => :errors, name: 'Erros', description: ''},
+    {:system_name => :home, name: 'Home', description: ''},
+    {:system_name => :layouts, name: 'Layouts', description: ''},
+    {:system_name => :mail, name: 'Mail', description: ''},
+    {:system_name => :orders, name: 'Pedidos', description: ''},
+    {:system_name => :products, name: 'Produtos', description: ''},
+    {:system_name => :users, name: 'Usuarios', description: ''}
+].hmap do |obj|
+  [obj[:system_name], Content.where(obj).first_or_create.id]
 end
 
-images_block = Tag.where(tag_name: 'images', name: 'Imagens', type_of: :block).first_or_create
-image_tags = []
-# Image Attributes
-image_tags << Tag.where(tag_name: 'image_url', name: 'image url').first_or_create
-image_tags << Tag.where(tag_name: 'image_alt', name: 'image alt').first_or_create
-image_tags << Tag.where(tag_name: 'images?', name: 'images?').first_or_create
-image_tags << Tag.where(tag_name: 'image_dom_id', name: 'image dom id').first_or_create
-image_tags << Tag.where(tag_name: 'image_id', name: 'image id').first_or_create
-image_tags << Tag.where(tag_name: 'image_integer', name: 'image integer').first_or_create
-image_tags << Tag.where(tag_name: 'image_viewable_type', name: 'image viewable type').first_or_create
-image_tags << Tag.where(tag_name: 'image_attachment_width', name: 'image attachment width').first_or_create
-image_tags << Tag.where(tag_name: 'image_attachment_height', name: 'image attachment height').first_or_create
-image_tags << Tag.where(tag_name: 'image_attachment_file_size', name: 'image attachment file size').first_or_create
-image_tags << Tag.where(tag_name: 'image_attachment_content_type', name: 'image attachment content type').first_or_create
-image_tags << Tag.where(tag_name: 'image_attachment_file_name', name: 'image attachment file name').first_or_create
-image_tags << Tag.where(tag_name: 'image_position', name: 'image position').first_or_create
-image_tags << Tag.where(tag_name: 'image_type', name: 'image type').first_or_create
-image_tags << Tag.where(tag_name: 'image_attachment_updated_at', name: 'image attachment updated at').first_or_create
-
-# Page where you can use the images block
-images_block.update_attribute(:page_ids, pages[:products_detail].id)
-image_tags.map do |image_tag|
-  # Blocks where you can use image attributes
-  image_tag.update_attribute(:block_ids, [products_block.id, images_block.id])
-  # Pages where you can use image attributes
-  image_tag.update_attribute(:page_ids, pages[:products_detail].id)
+@tag_creator.pages       = [
+    {:system_name => :edit, name: '', description: '', content_id: contents[:checkout]},
+    {:system_name => :internal_error, name: '', description: '', content_id: contents[:errors]},
+    {:system_name => :page_not_found, name: '', description: '', content_id: contents[:errors]},
+    {:system_name => :product_not_found, name: '', description: '', content_id: contents[:errors]},
+    {:system_name => :unauthorized, name: '', description: '', content_id: contents[:errors]},
+    {:system_name => :index, name: '', description: '', content_id: contents[:home]},
+    {:system_name => :body, name: '', description: '', content_id: contents[:layouts]},
+    {:system_name => :head, name: '', description: '', content_id: contents[:layouts]},
+    {:system_name => :cart, name: '', description: '', content_id: contents[:orders]},
+    {:system_name => :detail, name: '', description: '', content_id: contents[:orders]},
+    {:system_name => :category, name: '', description: '', content_id: contents[:products]},
+    {:system_name => :detail, name: '', description: '', content_id: contents[:products]},
+    {:system_name => :email, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :cancel_email, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :confirm_email, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :address, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :footer, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :header, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :order_details, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :shipment_details, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :stylesheet, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :reset_password_instructions, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :change_email, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :reset_password_instructions, name: '', description: '', content_id: contents[:mail]},
+    {:system_name => :account, name: '', description: '', content_id: contents[:users]},
+    {:system_name => :login, name: '', description: '', content_id: contents[:users]},
+    {:system_name => :password_recover, name: '', description: '', content_id: contents[:users]},
+    {:system_name => :registration, name: '', description: '', content_id: contents[:users]},
+    {:system_name => :sign_up, name: '', description: '', content_id: contents[:users]}
+].hmap do |obj|
+  [obj[:system_name], Page.where(obj).first_or_create.id]
 end
-# option_types_tag = Tag.where(tag_name: 'option_types', name: 'OptionType').first_or_create
-# variants_tag = Tag.where(tag_name: 'variants', name: 'Variant').first_or_create
-# taxons_tag = Tag.where(tag_name: 'taxons', name: 'Taxon').first_or_create
-# promotions_tag = Tag.where(tag_name: 'promotions', name: 'Promotion').first_or_create
-# properties_tag = Tag.where(tag_name: 'properties', name: 'Property').first_or_create
+
+# Create All blocks
+
+@tag_creator.tag_pages   = []
+@tag_creator.tag_belongs = []
+@tag_creator.tag_has     = []
+@tag_creator.create_blocks ([
+    {:tag_name => :cart_items, name: '', :type_of => 1},
+    {:tag_name => :images, name: '', :type_of => 1},
+    {:tag_name => :option_types, name: '', :type_of => 1},
+    {:tag_name => :option_values, name: '', :type_of => 1},
+    {:tag_name => :orders, name: '', :type_of => 1},
+    {:tag_name => :page_products, name: '', :type_of => 1},
+    {:tag_name => :page_products_pagination, name: '', :type_of => 1},
+    {:tag_name => :products, name: '', :type_of => 1},
+    {:tag_name => :promotions, name: '', :type_of => 1},
+    {:tag_name => :properties, name: '', :type_of => 1},
+    {:tag_name => :shipping_categories, name: '', :type_of => 1},
+    {:tag_name => :tax_categories, name: '', :type_of => 1},
+    {:tag_name => :taxons, name: '', :type_of => 1},
+    {:tag_name => :taxonomies, name: '', :type_of => 1},
+    {:tag_name => :variants, name: '', :type_of => 1},
+])
+
+Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }

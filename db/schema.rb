@@ -91,6 +91,14 @@ ActiveRecord::Schema.define(version: 20141023155015) do
   add_index "pages_tags", ["page_id"], name: "index_pages_tags_on_page_id", using: :btree
   add_index "pages_tags", ["tag_id"], name: "index_pages_tags_on_tag_id", using: :btree
 
+  create_table "parameters", force: true do |t|
+    t.string  "name"
+    t.string  "default"
+    t.text    "description"
+    t.text    "short_description"
+    t.integer "tag_id"
+  end
+
   create_table "tag_relations", id: false, force: true do |t|
     t.integer "source_tag_id"
     t.integer "target_tag_id"
@@ -103,11 +111,12 @@ ActiveRecord::Schema.define(version: 20141023155015) do
     t.string   "name"
     t.string   "tag_name"
     t.text     "description"
-    t.text     "example"
+    t.text     "example_curly"
+    t.text     "example_html"
+    t.text     "additional_info"
     t.string   "synopsis"
     t.string   "version"
-    t.string   "type_of",     default: "0"
-    t.string   "integer",     default: "0"
+    t.integer  "type_of",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

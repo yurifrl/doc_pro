@@ -1,0 +1,42 @@
+<div class="col-sm-3">
+  <!-- Left column -->
+
+  <!--tabs-->
+  <div class="container">
+    <div class="col-md-4">
+      <ul class="nav nav-tabs" id="myTab">
+        <li class="active">
+          <a href="#pages" data-toggle="tab">Templates</a>
+        </li>
+        <li>
+          <a href="#tags" data-toggle="tab">Tags</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="pages">
+          <ul>
+            <% @tag.pages.each do |tag| %>
+                <li><%= link_to tag.system_name, tag %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="tab-pane" id="tags">
+          <ul>
+            <% if @tag %>
+                <% @tag.tags.each do |tag| %>
+                    <li><%= link_to tag.tag_name, tag %></li>
+                <% end %>
+            <% else %>
+                <% @tags.each do |tag| %>
+                    <li><%= link_to tag.tag_name, tag %></li>
+                <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--/tabs-->
+</div>
