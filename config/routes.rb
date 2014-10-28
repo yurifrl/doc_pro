@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'landings#index'
-  resources :tags
-  resources :pages
+  # resources :tags
+  # resources :pages
+  get 'tag/:tag_name', to: 'tags#show', as: :tag
+  get 'page/:page_name', to: 'pages#show', as: :page
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
