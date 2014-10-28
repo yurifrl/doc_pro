@@ -13,7 +13,7 @@
           <h1><i class="glyphicon glyphicon-tag"></i> <%= @tag.name %></h1>
 
           <span class="pull-left"><%= @tag.to_curly(close: true) %></span>
-          <span class="pull-right">Escopo: global, local</span>
+          <span class="pull-right">Escopo: <%= @tag.contexts.map(&:name).join(',') %></span>
 
           <hr/>
 
@@ -24,10 +24,10 @@
           <div class="col-md-9">
             <ul class="nav nav-tabs" id="myTab">
               <li class="active">
-                <a href="#sample-curly" data-toggle="tab">Templates</a>
+                <a href="#sample-curly" data-toggle="tab">Curly</a>
               </li>
               <li>
-                <a href="#sample-html" data-toggle="tab">Tags</a>
+                <a href="#sample-html" data-toggle="tab">HTML (Resultado)</a>
               </li>
             </ul>
 
@@ -47,15 +47,17 @@
         </div>
 
         <%= @tag.additional_info %>
-        <% if @tag.block? && @tag.parameters %>
+
+        <% if @tag.block? && @tag.parameters && @tag.parameters.any? %>
             <%= render 'elements/list_snippet', locals: {tag: @tag} %>
         <% end %>
 
         <div class="col-md-9">
           <h1>Templates relacionados</h1>
           <ul>
-            <li></li>
-            <li></li>
+            <% @tag.pages.each do |page| %>
+                <li><%= link_to page.name, page %></li>
+            <% end %>
           </ul>
         </div>
       </div>

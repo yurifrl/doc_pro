@@ -23,19 +23,19 @@
     <div class="col-md-4">
       <ul class="nav nav-tabs" id="myTab">
         <li class="active">
-          <a href="#pages" data-toggle="tab">Templates</a>
+          <a href="#tags" data-toggle="tab">Tags</a>
         </li>
         <li>
-          <a href="#tags" data-toggle="tab">Tags</a>
+          <a href="#pages" data-toggle="tab">Templates</a>
         </li>
       </ul>
 
       <div class="tab-content">
-        <div class="tab-pane active" id="pages">
-          <ul id="pages-sidebar"></ul>
-        </div>
-        <div class="tab-pane" id="tags">
+        <div class="tab-pane active" id="tags">
           <ul id="tags-sidebar"></ul>
+        </div>
+        <div class="tab-pane" id="pages">
+          <ul id="pages-sidebar"></ul>
         </div>
       </div>
     </div>
@@ -49,13 +49,11 @@
 </script>
 
 <script id="tag-template" type="text/x-handlebars-template">
-  <li>
-    <a href="/tag/{{tag_name}}" class="item" data-remote="true">{{tag_name}}</a>
-  </li>
+  <li><a href="/tag/{{tag_name}}" class="item {{type_of}}" data-remote="true">{{tag_name}}</a></li>
 </script>
 
 <script id="page-template" type="text/x-handlebars-template">
   <li>
-    <a href="/page/{{id}}" class="item" data-remote="true">{{name}}</a>
+    <a href="/page/{{name}}" class="item {{file_path}}" data-remote="true">{{name}}.html.curly</a>
   </li>
 </script>

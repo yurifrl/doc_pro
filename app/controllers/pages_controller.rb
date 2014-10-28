@@ -1,10 +1,8 @@
-class PagesController < ApplicationController
+class PagesController < FrontendController
   # GET /pages/1
   # GET /pages/1.json
   def show
-    @tags  = Tag.all.to_json
-    @pages = Page.all.to_json
-    @page  = Page.find(params[:page_name])
+    @page  = Page.where(name: params[:page_name]).limit(1).first
     respond_to do |format|
       format.js { @page }
       format.html { render :show }

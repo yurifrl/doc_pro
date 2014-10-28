@@ -1,6 +1,4 @@
-class LandingsController < ApplicationController
+class LandingsController < FrontendController
   def index
-    @tags  = Tag.all.to_json
-    @pages = Page.all.to_json
   end
 end
