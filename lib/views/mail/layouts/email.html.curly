@@ -1,0 +1,23 @@
+<html>
+<head>
+  <style>
+    {{stylesheet}}
+  </style>
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    {{header}}
+  </header>
+  <section id="main">
+      ============================
+      staging/themes/basic/views/mail/layouts/email.html.curly
+      ============================
+    {{content}}
+  </section>
+  <footer>
+    {{footer}}
+  </footer>
+</div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 8b6586c23a623b3281c136b057d856cc8fb5457e
+  revision: 506c47e71af6b59f53487e1b80a063ea751af946
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: 11060fb8da7b34d177e6528a171b44c61f5768f2
+  revision: a93edc72fd9f6cc5839dd74107b215a81c16dc37
   specs:
     devise (3.4.0)
       bcrypt (~> 3.0)
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: git://github.com/twbs/bootstrap-sass.git
-  revision: 452506d6be0827ca1451e3732ce6eec9f87ce547
+  revision: 9365af1399b518f1f1d1217e8f9dc56febdd7a93
   specs:
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
@@ -152,7 +152,7 @@ GEM
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
-    jbuilder (2.2.3)
+    jbuilder (2.2.4)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.2)
@@ -215,7 +215,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
-    ransack (1.4.1)
+    ransack (1.5.0)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
       activesupport (>= 3.0)
@@ -274,7 +274,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.4.0)
+    turbolinks (2.5.1)
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)

@@ -1,0 +1,115 @@
+<table id="order_summary" class="split">
+  <tr>
+    <td>Numero de identificação</td>
+    <td>{{order_number}}</td>
+  </tr>
+  <tr class="alt">
+    <td>Metodo de pagamento</td>
+    <td>{{order_payment_methods}}</td>
+  </tr>
+  {{#order_canceled?}}
+      <tr>
+        <td>Status</td>
+        <td>Cancleado</td>
+      </tr>
+  {{/order_canceled?}}
+  {{^order_canceled?}}
+      <tr>
+        <td>Enviado</td>
+        <td>{{order_complete_date}}</td>
+      </tr>
+  {{/order_canceled?}}
+</table>
+
+<table id="addresses">
+  <tr>
+    <td>
+      <h2><span>{{translate text="billing_address"}}</span></h2>
+      {{bill_address}}
+    </td>
+    <td>
+      <h2><span>{{translate text="shipping_address"}}</span></h2>
+      {{ship_address}}
+    </td>
+  </tr>
+</table>
+
+<div class="spacer_15">&nbsp;</div>
+<h2><span>Detalhes do pedido</span></h2>
+
+<table id="order_details">
+  <tbody id="line-items">
+  <tr data-hook="order_details_line_items_headers">
+    <th>{{translate text="items_purchased"}}</th>
+    <th class="price number">{{translate text="price"}}</th>
+    <th class="qty number">{{translate text="qty"}}</th>
+    <th class="total number">{{translate text="total"}}</th>
+  </tr>
+  {{*order_items}}
+  <tr data-hook="order_details_line_item_row" class="{{cycle_class}}">
+    <td class="name">
+      {{name}}
+      {{variant}}
+    </td>
+    <td class="price number">{{price}}</td>
+    <td class="qty number">{{quantity}}</td>
+    <td class="total number">{{total}}</td>
+  </tr>
+  {{/order_items}}
+  </tbody>
+  {{*shipments}}
+  <tbody id="shipments" data-hook="shipments">
+  <tr id="shipments-row">
+    <td class="title" colspan="3">
+      {{translate text="shipping_method"}} - {{shipping_method_name}}
+    </td>
+    <td class="total number">
+      {{shipping_method_cost}}
+    </td>
+  </tr>
+  </tbody>
+  {{/shipments}}
+  <tbody id="subtotal" data-hook="order_details_subtotal">
+  <tr id="subtotal-row">
+    <td class="title" colspan="3">
+      {{translate text="subtotal"}}
+    </td>
+    <td class="total number">
+      {{order_total}}
+    </td>
+  </tr>
+  </tbody>
+  <tbody id="order-charges" data-hook="order_details_adjustments">
+  {{*order_adjustments}}
+    {{#valid?}}
+      <tr class="total">
+        <td class="title" colspan="3">
+          {{label}}
+        </td>
+        <td class="total number">
+          {{total}}
+        </td>
+      </tr>
+    {{/valid?}}
+  {{/order_adjustments}}
+  </tbody>
+  <tbody id="order-total" data-hook="order_details_total">
+  <tr class="total">
+    <td class="title" colspan="3">
+      {{translate text="order_total"}}
+    </td>
+    <td class="total number">
+      <span id="order_total">{{order_total}}</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+{{#digital_product?}}
+  <div class="spacer_15">&nbsp;</div>
+  <h2><span>{{translate text="digital_download_links"}}</span></h2>
+  <p>{{translate text="digital_email_description"}}</p>
+  {{*digital_products}}
+    <p>{{name}}:<br/>{{link}}</p>
+  {{/digital_products}}
+{{/digital_product?}}

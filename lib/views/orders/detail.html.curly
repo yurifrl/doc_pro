@@ -1,0 +1,32 @@
+<fieldset id="order_summary" data-hook>
+    <legend>{{order_number}}</legend>
+    <h1>{{title}}</h1>
+
+    <div id="order" data-hook>
+        {{#order_completed?}}
+        <h1>Obrigado pelo seu pedido</h1>
+            {{/order_completed?}}
+
+        {{default_order_details}}
+
+        <br class="clear"/>
+
+        <p data-hook="links">
+            {{back_to_store_link}}
+
+            {{^order_completed?}}
+                {{my_account_link}}
+            {{/order_completed?}}
+        </p>
+    </div>
+
+    {{*bill_address}}
+        {{address_firstname}}
+        {{address_lastname}}
+    {{/bill_address}}
+
+    {{*shipping_address}}
+        {{address_firstname}}
+        {{address_lastname}}
+    {{/shipping_address}}
+</fieldset>

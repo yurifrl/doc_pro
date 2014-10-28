@@ -1,0 +1,16 @@
+<div class="details">
+  {{#address?}}
+    <span class="full-name">{{address_full_name}}</span>
+    <br/>
+    {{address_primary}}
+    {{#address_secondary?}}
+      <br/>
+      {{address_secondary}}
+    {{/address_secondary?}}
+    <br/>
+    {{address}}
+    <br/>
+    {{address_country}}
+    {{address_zipcode}}
+  {{/address?}}
+</div>

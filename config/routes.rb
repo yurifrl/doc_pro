@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # resources :pages
   get 'tag/:tag_name', to: 'tags#show', as: :tag
   get 'page/:page_name', to: 'pages#show', as: :page
+  get 'download/:page_name', to: 'pages#download', as: :page_download
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

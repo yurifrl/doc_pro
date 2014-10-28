@@ -1,7 +1,7 @@
 <!-- Main -->
 <div class="container-fluid">
   <div class="row">
-    
+
     <div class="col-sm-9">
 
       <div class="row">
@@ -15,9 +15,11 @@
 
           <span class="pull-left"><%= path_to_file(@page.file_path) %></span>
           <span class="pull-right">
-            <button type="button" class="btn btn-info"><i class="glyphicon glyphicon-download"></i>
-              <span>Baixe o arquivo padrão</span>
-            </button>
+
+            <a href="<%= page_download_path(@page.name) %>" class="btn btn-info">
+              <span><i class="glyphicon glyphicon-download"></i>Baixe o arquivo padrão</span>
+              </a>
+
           </span>
 
           <hr/>
@@ -29,10 +31,10 @@
           <div class="col-md-9">
             <ul class="nav nav-tabs" id="myTab">
               <li class="active">
-                <a href="#sample-curly" data-toggle="tab">Templates</a>
+                <a href="#sample-curly" data-toggle="tab">Código</a>
               </li>
               <li>
-                <a href="#sample-html" data-toggle="tab">Tags</a>
+                <a href="#sample-html" data-toggle="tab">HTML</a>
               </li>
             </ul>
 
@@ -49,6 +51,15 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="col-md-9">
+          <h1>TAGS POSSÍVEIS EM EDIT.HTML.CURLY</h1>
+          <ul>
+            <% @page.tags.each do |tag| %>
+                <li><%= link_to tag.tag_name, tag %></li>
+            <% end %>
+          </ul>
         </div>
 
         <div class="col-md-9">

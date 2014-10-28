@@ -1,0 +1,24 @@
+<div class="address" id="shipping">
+  <h2>{{translate text="shipping_address"}}</h2>
+  {{address}}
+</div>
+
+<table data-hook="shipment_details">
+  <tbody id="line-items" "data-hook" => "">
+    <tr data-hook="shipment_details_line_items_headers">
+      <th>{{translate text="item_description"}}</th>
+      <th class="qty number">{{translate text="qty"}}</th>
+      <th>{{translate text="status"}}</th>
+    </tr>
+  {{*shipments}}
+      <tr data-hook="shipment_details_line_item_row" class="{{shipment_class_cycle}}">
+        <td class="name">
+          {{variant}}
+          {{option_values}}
+        </td>
+        <td class="qty number">{{qty}}</td>
+        <td>{{translate text="shipped"}}</td>
+      </tr>
+  {{/shipments}}
+  </tbody>
+</table>

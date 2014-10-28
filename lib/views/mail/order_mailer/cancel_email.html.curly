@@ -1,0 +1,20 @@
+============================
+staging/themes/basic/views/mail/order_mailer/cancel_email.html.curly
+============================
+<p class="customer">
+  Caro {{client_name default='Cliente'}}
+</p>
+<p class="overview">
+  Seu pedido foi <b>CANCELADO</b>. Por favor mantenha esta informação.
+</p>
+<p class="link">
+  Para ver seu pedido com mais detalhes clique no link:
+  {{link_site}}
+</p>
+<h1>
+  Resumo do pedido.
+</h1>
+{{order_details}}
+<p class="thank-you">
+  Obrigado.
+</p>

@@ -1,0 +1,25 @@
+<div class="container main-container">
+    <div class="row">
+        <div class="clearfix visible-sm"></div>
+        {{#cart_empty?}}
+        <section class="other-actions">
+            <div class="alert alert-info">Seu Carrinho está vazio</div>
+            <a href="{{home_link}}" class="action">Continuar Comprando</a>
+        </section>
+        {{/cart_empty?}}
+
+        {{^cart_empty?}}
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-12 col-sm-12">
+                <span class="title">SHOPPING CART</span>
+            </div>
+
+            <div class="col-lg-12 col-sm-12 hero-feature">
+                {{order_form}}
+            </div>
+        </div>
+
+        {{/cart_empty?}}<!-- End Cart -->
+    </div>
+</div>

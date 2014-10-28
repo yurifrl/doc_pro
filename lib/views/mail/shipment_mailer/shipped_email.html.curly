@@ -1,0 +1,20 @@
+<p class="customer">
+  Caro {{client_name default='Cliente'}}
+</p>
+<p class="overview"> Seu pedido foi enviado. </p>
+<p class="link">
+  Para ver seu pedido com mais detalhes clique no link:
+  {{order_reference_link}}
+</p>
+<h1><span>Resumo de envio</span></h1>
+{{shipment_details}}
+{{#shipment_tracking?}}
+  <p class="tracking">
+    Informações de rastreamento:
+    {{tracking_info}}
+    <br>
+    Url de rastreio:
+    {{tracking_url}}
+  </p>
+{{/shipment_tracking?}}
+<p class="thank-you">Obrigado. </p>

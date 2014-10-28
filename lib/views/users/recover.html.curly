@@ -1,0 +1,10 @@
+<%= render :partial => 'shared/error_messages', :locals => { :target => @spree_user } %>
+
+<div id="forgot-password">
+  <h6><%= Spree.t(:forgot_password) %></h6>
+
+  <p><%= Spree.t(:instructions_to_reset_password) %></p>
+
+    {{local_form}}
+
+</div>

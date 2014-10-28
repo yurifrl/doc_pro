@@ -1,0 +1,17 @@
+<section class="checkout">
+
+  <section class="container">
+
+    <section class="errors">
+      {{errors}}
+    </section>
+
+    <section class="checkout-edit">
+
+      {{checkout_form}}
+
+    </section>
+
+  </section>
+
+</section>

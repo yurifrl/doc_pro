@@ -1,0 +1,20 @@
+<p class="customer">
+  {{customer}}
+</p>
+<p class="overview">
+  Por favor revisse e mantenha as seguintes informações referentes ao pedido
+</p>
+<p class="link">
+    ============================
+    staging/themes/basic/views/mail/order_mailer/confirm_email.html.curly
+    ============================
+  Para ver seu pedido com mais detalhes clique no link:
+  {{order_link}}
+</p>
+<h1>
+  Resumo do pedido.
+</h1>
+{{order_details}}
+<p class="thank-you">
+  Obrigado.
+</p>

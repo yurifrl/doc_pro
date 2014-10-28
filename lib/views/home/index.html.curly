@@ -1,0 +1,160 @@
+<div class="container main-container">
+    <div class="row">
+        <!-- Slider -->
+        <div class="col-lg-9 col-md-12">
+            <div class="slider">
+                <ul class="bxslider">
+                    <li>
+                        <a href="index.html"><img src="{{assets_path file='images/banner_slider-3.jpg'}}" alt=""/></a>
+                    </li>
+                    <li>
+                        <a href="index.html"><img src="{{assets_path file='images/banner_slider-2.jpg'}}" alt=""/></a>
+                    </li>
+                    <li>
+                        <a href="index.html"><img src="{{assets_path file='images/banner_slider-1.jpg'}}" alt=""/></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Slider -->
+
+        <!-- Product Selection, visible only on large desktop -->
+        <div class="col-lg-3 visible-lg">
+            <div class="row text-center">
+                <div class="col-lg-12 col-md-12 hero-feature">
+                    <div class="thumbnail">
+                        <a href="detail.html" class="link-p first-p"><img src="{{assets_path file='images/product-1.jpg'}}" alt=""></a>
+
+                        <div class="caption prod-caption">
+                            <h4>
+                                <a href="detail.html">Funkalicious Print T-Shirt</a>
+                            </h4>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+
+                            <p>
+
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-default">$ 928.96</a>
+                                <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Product Selection -->
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+
+            <!-- Categories -->
+            <div class="col-lg-12 col-md-12 col-sm-6">
+                <div class="no-padding">
+                    <span class="title">CATEGORIES</span>
+                </div>
+                <div class="list-group list-categ">
+                    {{*taxonomies}}
+                        {{taxonomy_name}}
+                        {{*taxons}}
+                            <a href="{{taxon_link}}" class="list-group-item">{{taxon_name}}</a>
+                        {{/taxons}}
+                    {{/taxonomies}}
+                </div>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Best Seller -->
+            <div class="col-lg-12 col-md-12 col-sm-6">
+                <div class="no-padding">
+                    <span class="title">BEST SELLER</span>
+                </div>
+
+                <div class="hero-feature">
+                    <div class="thumbnail text-center">
+                        <a href="detail.html" class="link-p"><img src="{{assets_path file='images/product-8.jpg'}}" alt=""></a>
+
+                        <div class="caption prod-caption">
+                            <h4>
+                                <a href="detail.html">Penn State College T-Shirt</a>
+                            </h4>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+
+                            <p>
+
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-default">$ 528.96</a>
+                                <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-feature hidden-sm">
+                    <div class="thumbnail text-center">
+                        <a href="detail.html" class="link-p"><img src="{{assets_path file='images/product-9.jpg'}}" alt=""></a>
+
+                        <div class="caption prod-caption">
+                            <h4>
+                                <a href="detail.html">Ohio State College T-Shirt</a>
+                            </h4>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+
+                            <p>
+
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-default">$ 924.25</a>
+                                <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Best Seller -->
+
+        </div>
+
+        <div class="clearfix visible-sm"></div>
+
+        <!-- Featured -->
+        <div class="col-lg-9 col-md-9 col-sm-12">
+            <div class="col-lg-12 col-sm-12">
+                <span class="title">FEATURED PRODUCTS</span>
+
+                {{*global_products}}
+                <div class="col-lg-4 col-sm-4 hero-feature text-center">
+                    <div class="thumbnail">
+                        <a href="{{product_link}}" class="link-p"><img src="{{image_url size="small"}}" alt="{{image_alt}}"></a>
+
+
+                        <div class="caption prod-caption">
+                            <h4>
+                                <a href="{{product_link}}">{{product_name}}</a>
+                            </h4>
+
+                            <p>{{product_description}}</p>
+
+                            <p>
+
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-default">{{product_price}}</a>
+                                <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {{/global_products}}
+            </div>
+            <div class="text-center">
+                {{global_products_pagination theme="bootstrap3"}}
+            </div>
+        </div>
+        <!-- End Featured -->
+    </div>
+</div>
