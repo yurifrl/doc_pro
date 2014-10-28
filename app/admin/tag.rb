@@ -27,9 +27,9 @@ ActiveAdmin.register Tag do
       f.input :name
     end
     f.inputs "Location" do
-      f.input :blocks, as: :select2_multiple, label: 'Pertence ao Bloco', :input_html => {:multiple => true}, collection: Tag.all.pluck(:tag_name, :id)
+      f.input :blocks, as: :select2_multiple, label: 'Pertence ao Bloco', :input_html => {:multiple => true}, collection: Tag.where(:type_of => 1).pluck(:tag_name, :id)
       f.input :tags, as: :select2_multiple, label: 'Possui as Tags', :input_html => {:multiple => true}, collection: Tag.all.pluck(:tag_name, :id)
-      f.input :pages, as: :select2_multiple, :input_html => {:multiple => true}, collection: Page.all.pluck(:system_name, :id)
+      f.input :pages, as: :select2_multiple, :input_html => {:multiple => true}, collection: Page.all.pluck(:file_path, :id)
       f.input :contexts, as: :select2_multiple, :input_html => {:multiple => true}, collection: Context.all.pluck(:name, :id)
       f.input :type_of, as: :select, collection: Tag.type_ofs.keys, include_blank: false
     end

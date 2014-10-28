@@ -1,14 +1,9 @@
 class TagsController < ApplicationController
-  # GET /tags
-  # GET /tags.json
-  def index
-    @tags  = Tag.all
-    @pages = Page.all
-  end
-
   # GET /tags/1
   # GET /tags/1.json
   def show
-    @tag = Tag.find(params[:id])
+    respond_to do |format|
+      format.js {@tag = Tag.where(tag_name: params[:id]).limit(1).first}
+    end
   end
 end

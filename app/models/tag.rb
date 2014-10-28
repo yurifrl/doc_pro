@@ -31,4 +31,12 @@ class Tag < ActiveRecord::Base
       "{{#{tag_name}#{aux}}}"
     end
   end
+
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
 end

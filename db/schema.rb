@@ -74,8 +74,11 @@ ActiveRecord::Schema.define(version: 20141023155015) do
 
   create_table "pages", force: true do |t|
     t.string   "name"
-    t.string   "system_name"
+    t.string   "file_path"
     t.text     "description"
+    t.text     "short_description"
+    t.text     "example_html"
+    t.text     "example_curly"
     t.integer  "content_id"
     t.datetime "created_at"
     t.datetime "updated_at"
