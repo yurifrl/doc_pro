@@ -41,7 +41,6 @@ jQuery(function ($) {
         render_sidebar(result_tags, result_pages);
     });
     $(document).on('click', '.item', function () {
-
         history.pushState(null, $(this).val(), this.href);
     });
     $(window).bind('popstate', function(){

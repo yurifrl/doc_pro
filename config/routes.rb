@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'landings#index'
+  get 'intro', to: 'landings#intro'
   # resources :tags
   # resources :pages
   get 'tag/:tag_name', to: 'tags#show', as: :tag
