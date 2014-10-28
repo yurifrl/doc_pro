@@ -1,0 +1,162 @@
+<div class="container main-container">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+
+            <!-- Best Seller -->
+            <div class="col-lg-12 col-md-12 col-sm-12 visible-lg visible-md">
+                <div class="no-padding">
+                    <span class="title">BEST SELLER</span>
+                </div>
+                <div class="thumbnail col-lg-12 col-md-12 col-sm-6 text-center">
+                    <a href="detail.html" class="link-p"><img src="images/product-8.jpg" alt=""></a>
+
+                    <div class="caption prod-caption">
+                        <h4>
+                            <a href="detail.html">Penn State College T-Shirt</a>
+                        </h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+
+                        <p>
+
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-default">$ 528.96</a>
+                            <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+                <div class="thumbnail col-lg-12 col-md-12 col-sm-6 hidden-xs text-center">
+                    <a href="detail.html" class="link-p"><img src="images/product-9.jpg" alt=""></a>
+
+                    <div class="caption prod-caption">
+                        <h4>
+                            <a href="detail.html">Ohio State College T-Shirt</a>
+                        </h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+
+                        <p>
+
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-default">$ 924.25</a>
+                            <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Best Seller -->
+
+        </div>
+
+        <div class="clearfix visible-sm"></div>
+
+
+        <!-- Product Detail -->
+        <div class="col-lg-9 col-md-9 col-sm-12">
+            <div class="col-lg-12 col-sm-12">
+                <span class="title">{{product_name}}</span>
+            </div>
+            <div class="col-lg-12 col-sm-12 hero-feature">
+                <div class="sp-wrap">
+                    <a href=""><img src="{{image_url size="small"}}" alt="{{image_alt}}"></a>
+                </div>
+                <h4>{{product_name}}</h4>
+                98 items in stock
+                <hr/>
+                {{product_description}}
+                <hr/>
+
+                <div class="input-qty-detail">
+                    {{product_cart_form}}
+                </div>
+                <br/>
+                <hr/>
+
+                <h6 class="product-section-title">Propriedades</h6>
+
+                <table id="product-properties" class="table-display" data-hook>
+                    <tbody>
+                        {{*properties}}
+                        <tr class="{{property_css_class}}">
+                            <td><strong>{{property_presentation}}</strong></td>
+                            <td>{{property_value}}</td>
+                        </tr>
+                        {{/properties}}
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="col-lg-12 col-sm-12">
+                <span class="title">RELATED PRODUCTS</span>
+            </div>
+            <div class="col-lg-4 col-sm-4 hero-feature text-center">
+                <div class="thumbnail">
+                    <a href="detail.html" class="link-p"><img src="images/product-10.jpg" alt=""></a>
+
+                    <div class="caption prod-caption">
+                        <h4>
+                            <a href="detail.html">Adidas Men Blue &amp; Red Striped Polo T-shirt</a>
+                        </h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+
+                        <p>
+
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-default">$ 22.22</a>
+                            <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 hero-feature text-center">
+                <div class="thumbnail">
+                    <a href="detail.html" class="link-p"><img src="images/product-11.jpg" alt=""></a>
+
+                    <div class="caption prod-caption">
+                        <h4>
+                            <a href="detail.html">Adidas Men Flame Black T-shirt</a>
+                        </h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+
+                        <p>
+
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-default">$ 15.47</a>
+                            <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 hero-feature text-center">
+                <div class="thumbnail">
+                    <a href="detail.html" class="link-p"><img src="images/product-12.jpg" alt=""></a>
+
+                    <div class="caption prod-caption">
+                        <h4>
+                            <a href="detail.html">Adidas Men Red Printed T-shirt</a>
+                        </h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+
+                        <p>
+
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-default">$ 20.63</a>
+                            <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Product Detail -->
+    </div>
+</div>

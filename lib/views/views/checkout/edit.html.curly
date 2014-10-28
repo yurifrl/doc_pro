@@ -1,0 +1,30 @@
+<section class="checkout">
+
+  <section class="container">
+
+    <section class="errors">
+      {{errors}}
+    </section>
+
+    <section class="checkout-edit">
+
+      {{checkout_form}}
+
+      {{#order_state? state='address'}}
+        <section class="order-summary">
+          {{summary}}
+        </section>
+      {{/order_state?}}
+
+    </section>
+
+  </section>
+
+</section>
+
+<script>
+  Spree.current_order_id = "{{order field='number'}}"
+  Spree.current_order_token = "{{order field='token'}}"
+</script>
+
+{{l10n_js_script}}

@@ -9,28 +9,22 @@
             </div>
             <!-- End Categories -->
         </div>
-
         <div class="clearfix visible-sm"></div>
 
         <!-- Featured 1 -->
+
         <div class="col-lg-9 col-md-9 col-sm-12">
+
             <div class="col-lg-12 col-sm-12">
-                {{#is_search?}}
-                <h1 class="title">Resultados de busca para: {{searched}}</h1>
-                {{/is_search?}}
+                {{^products?}}
+                <span class="title">Não Existem Produtos</span>
+                {{/products?}}
 
-                {{^global_products?}}
-                <h1 class="title">Não Existem Produtos</h1>
-                {{/global_products?}}
-
-                {{#global_products?}}
-                <h1 class="title">{{taxon_name}}</h1>
-                {{/global_products?}}
-
-                {{*global_products}}
+                {{*products}}
                 <div class="col-lg-4 col-sm-4 hero-feature text-center">
                     <div class="thumbnail">
                         <a href="{{product_link}}" class="link-p"><img src="{{image_url size="small"}}" alt="{{image_alt}}"></a>
+
 
                         <div class="caption prod-caption">
                             <h4>
@@ -42,19 +36,18 @@
                             <p>
 
                             <div class="btn-group">
-                                <a href="#" class="btn btn-default">$ 122.51</a>
+                                <a href="#" class="btn btn-default">{{product_price}}</a>
                                 <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
                             </div>
                             </p>
                         </div>
                     </div>
                 </div>
-                {{/global_products}}
+                {{/products}}
             </div>
-            <div class="text-center">
-                {{global_products_pagination theme="bootstrap3"}}
-            </div>
+
         </div>
+
         <!-- End Featured -->
     </div>
 </div>

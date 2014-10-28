@@ -1,14 +1,14 @@
 <div class="container main-container">
     <div class="row">
         <div class="clearfix visible-sm"></div>
-        {{#cart_empty?}}
+        {{^order_line_items?}}
         <section class="other-actions">
             <div class="alert alert-info">Seu Carrinho está vazio</div>
             <a href="{{home_link}}" class="action">Continuar Comprando</a>
         </section>
-        {{/cart_empty?}}
+        {{/order_line_items?}}
 
-        {{^cart_empty?}}
+        {{#order_line_items?}}
 
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="col-lg-12 col-sm-12">
@@ -16,10 +16,12 @@
             </div>
 
             <div class="col-lg-12 col-sm-12 hero-feature">
-                {{order_form}}
+                {{form_cart}}
             </div>
         </div>
 
-        {{/cart_empty?}}<!-- End Cart -->
+        <!-- Cart --><!-- Cart --><!-- Cart --><!-- Cart --><!-- Cart -->
+
+        {{/order_line_items?}}<!-- End Cart -->
     </div>
 </div>

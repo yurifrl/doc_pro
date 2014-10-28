@@ -1,0 +1,36 @@
+{{errors}}
+<h1>{{translate text='registration'}}</h1>
+<div id="registration" class="row" data-hook>
+  <div id="account">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{translate text='create_new_account'}}</h3>
+        </div>
+        <div id="new-customer" class="panel-body" data-hook="login">
+          {{new_user}}
+        </div>
+        <div class="text-center">
+          {{translate text='or'}}
+          {{existing_login_link}}
+        </div>
+        <div data-hook="login_extras"></div>
+      </div>
+    </div>
+  </div>
+  {{#allow_guest_checkout?}}
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"> {{translate text='guest_user_account'}}</h3>
+        </div>
+        <div id="guest_checkout" class="panel-body" data-hook>
+          {{#registration_error?}}
+            
+          {{/registration_error?}}
+          {{registration_form}}
+        </div>
+      </div>
+    </div>
+  {{/allow_guest_checkout?}}
+</div>
