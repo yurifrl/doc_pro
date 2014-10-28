@@ -56,7 +56,7 @@
           <h1>Templates relacionados</h1>
           <ul>
             <% @tag.pages.each do |page| %>
-                <li><%= link_to page.name, page %></li>
+                <li><%= link_to page.display_name, page_path(page.name) %></li>
             <% end %>
           </ul>
         </div>
